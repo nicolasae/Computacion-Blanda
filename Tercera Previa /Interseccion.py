@@ -13,7 +13,7 @@ plt.plot(x,bajo,'b',linewidth = 1.5, label='Bajo')
 plt.plot(x,medio,'r',linewidth = 1.5, label='Medio')
 
 #Ajustes gráfico
-plt.title('Función Unión (máximo)')
+plt.title('Función Intersección(máximo)')
 plt.ylabel('Membresía')
 plt.xlabel("Velocidad (Kilometros Por Hora)")
 plt.legend(loc='center right',bbox_to_anchor = (1.25,0.5),ncol=1,fancybox=True,shadow = True)
@@ -30,18 +30,11 @@ plt.axvline(x=8,ymin=0,ymax=10,color="g",linestyle='-.')
 plt.axvline(x=9,ymin=0,ymax=10,color="g",linestyle='-.')
 plt.axvline(x=10,ymin=0,ymax=10,color="g",linestyle='-.')
 
-plt.plot(0,1,marker='o', markersize=10, color='g')
-plt.plot(1,0.8,marker='o', markersize=10, color='g')
-plt.plot(2,0.6,marker='o', markersize=10, color='g')
-plt.plot(3,0.6,marker='o', markersize=10, color='g')
-plt.plot(4,0.8,marker='o', markersize=10, color='g')
-plt.plot(5,1,marker='o', markersize=10, color='g')
-plt.plot(6,0.8,marker='o', markersize=10, color='g')
-plt.plot(7,0.6,marker='o', markersize=10, color='g')
-plt.plot(8,0.4,marker='o', markersize=10, color='g')
-plt.plot(9,0.2,marker='o', markersize=10, color='g')
+plt.plot(2.5,0.5,marker='o', markersize=10, color='g')
 plt.plot(10,0,marker='o', markersize=10, color='g')
 
-plt.savefig('Union')
+plt.savefig('Interseccion')
 
-print(sk.fuzzy_or(x,bajo,x,medio))
+print(sk.fuzzy_and(x,bajo,x,medio))
+
+
