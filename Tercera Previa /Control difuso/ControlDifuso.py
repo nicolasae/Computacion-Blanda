@@ -21,9 +21,9 @@ servicio_bajo = fuzz.trimf(x_servicio,[0,0,5])
 servicio_medio = fuzz.trimf(x_servicio,[0,5,10])
 servicio_alto = fuzz.trimf(x_servicio,[5,10,10])
 
-propina_baja = fuzz.trimf(x_propina,[0,0,13])
-propina_media = fuzz.trimf(x_propina,[0,13,25])
-propina_alta = fuzz.trimf(x_propina,[13,25,25])
+propina_baja = fuzz.trimf(x_propina,[0,0,16])
+propina_media = fuzz.trimf(x_propina,[0,16,25])
+propina_alta = fuzz.trimf(x_propina,[16,25,25])
 
 #Visualización
 fig,(ax0,ax1,ax2) = plt.subplots(nrows = 3, figsize = (8,9))
