@@ -19,19 +19,20 @@ calidad_alta = fuzz.trimf(x_calidad,[5,10,10])
 
 servicio_bajo = fuzz.trimf(x_servicio,[0,0,5])
 servicio_medio = fuzz.trimf(x_servicio,[0,5,10])
-servicio_alto = fuzz.trimf(x_servicio,[5,5,10])
+servicio_alto = fuzz.trimf(x_servicio,[5,10,10])
 
-propina_baja = fuzz.trimf(x_propina,[0,0,5])
-propina_media = fuzz.trimf(x_propina,[0,5,10])
-propina_alta = fuzz.trimf(x_propina,[5,10,10])
+propina_baja = fuzz.trimf(x_propina,[0,0,13])
+propina_media = fuzz.trimf(x_propina,[0,13,25])
+propina_alta = fuzz.trimf(x_propina,[13,25,25])
 
 #Visualización
 fig,(ax0,ax1,ax2) = plt.subplots(nrows = 3, figsize = (8,9))
-ax0.plot(x_calidad,calidad_baja,'b',linewidth =1.5, label = 'Mala')
-ax0.plot(x_calidad,calidad_media,'g',linewidth =1.5, label = 'Aceptable')
-ax0.plot(x_calidad,calidad_alta,'r',linewidth =1.5, label = 'Buena')
+ax0.plot(x_calidad, calidad_baja,'b',linewidth =1.5, label = 'Mala')
+ax0.plot(x_calidad, calidad_media,'g',linewidth =1.5, label = 'Aceptable')
+ax0.plot(x_calidad, calidad_alta,'r',linewidth =1.5, label = 'Buena')
 ax0.set_title ('Calidad de la comida')
 ax0.legend()
+
 
 ax1.plot(x_servicio,servicio_bajo,'b',linewidth =1.5, label = 'Malo')
 ax1.plot(x_servicio,servicio_medio,'g',linewidth =1.5, label = 'Aceptable')
@@ -52,6 +53,8 @@ for ax in (ax0, ax1, ax2):
     ax.get_xaxis().tick_bottom()
     ax.get_yaxis().tick_left()
 plt.tight_layout()
+
+plt.savefig('1')
 
 #Necesitamos la activación de nuestras funciones difusa en estos valores 
 nivel_calidad_bajo = fuzz.interp_membership(x_calidad,calidad_baja,6.5)
@@ -93,6 +96,8 @@ for ax in (ax0,):
     ax.get_xaxis().tick_bottom()
     ax.get_yaxis().tick_left()
 plt.tight_layout()
+plt.savefig('2')
+
 
 #Agregar las tres funciones de pertenencia de salida juntas 
 agregado = np.fmax(activacion_propina_baja,
@@ -111,6 +116,7 @@ ax0.fill_between ( x_propina,propina0, agregado, facecolor = 'Orange', alpha = 0
 ax0.plot ( [propina,propina],[0,activacion_propina],'k',linewidth=1.5,alpha = 0.9)
 ax0.set_title('Membresía agregada y resultado (línea)')
 
+
 #Cancela los ejes superior/derecho
 for ax in (ax0,):
     ax.spines['top'].set_visible(False)
@@ -119,4 +125,5 @@ for ax in (ax0,):
     ax.get_yaxis().tick_left()
 plt.tight_layout()
 
+plt.savefig('3')
 
