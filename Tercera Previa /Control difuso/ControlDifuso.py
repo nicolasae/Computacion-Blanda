@@ -58,7 +58,7 @@ nivel_calidad_bajo = fuzz.interp_membership(x_calidad,calidad_baja,6.5)
 nivel_calidad_medio = fuzz.interp_membership(x_calidad,calidad_media,6.5)
 nivel_calidad_alto = fuzz.interp_membership(x_calidad,calidad_alta,6.5)
 nivel_servicio_bajo = fuzz.interp_membership(x_servicio,servicio_bajo,9.8)
-nivel_servicio_medio = fuzz.interp_membership(x_servicio,servicio_medioo,9.8)
+nivel_servicio_medio = fuzz.interp_membership(x_servicio,servicio_medio,9.8)
 nivel_servicio_alto = fuzz.interp_membership(x_servicio,servicio_alto,9.8)
 
 #Ahora tomamos nuestras reglas y las aplicamos.La regla 1 se refiere a la mala comida o servicio.
@@ -87,10 +87,10 @@ ax0.plot (x_propina, propina_alta, 'r', linewidth = 0.5, linestyle ='--')
 ax0.set_title('Actividad de membresía de salida')
 
 #Cancelar los ejes superior/derecho
-for ax in (ax0)
+for ax in (ax0,):
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
-    ax_get_xaxis().tick_bottom()
+    ax.get_xaxis().tick_bottom()
     ax.get_yaxis().tick_left()
 plt.tight_layout()
 
@@ -112,7 +112,7 @@ ax0.plot ( [propina,propina],[0,activacion_propina],'k',linewidth=1.5,alpha = 0.
 ax0.set_title('Membresía agregada y resultado (línea)')
 
 #Cancela los ejes superior/derecho
-for ax in (ax0):
+for ax in (ax0,):
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.get_xaxis().tick_bottom()
