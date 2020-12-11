@@ -1,7 +1,7 @@
 import cv2
 import os
 
-imagesPath = "/home/nicolas/Escritorio/Computacion-Blanda/Cuarta Previa/Almacenamiento de Rostros/Imagenes" # Cambia a la ruta donde hayas almacenado la carpeta con las imágenes
+imagesPath = "/home/nicolas/Escritorio/Computacion-Blanda/Cuarta Previa/Almacenamiento de Rostros/Imagenes" 
 imagesPathList = os.listdir(imagesPath)
 
 if not os.path.exists('Rostros encontrados'):
@@ -28,8 +28,8 @@ for imageName in imagesPathList:
 		for (x,y,w,h) in faces:
 			rostro = imageAux[y:y+h,x:x+w]
 			rostro = cv2.resize(rostro,(150,150), interpolation=cv2.INTER_CUBIC)
-			#cv2.imshow('rostro',rostro)
-			#cv2.waitKey(0)
+			# cv2.imshow('rostro',rostro)
+			# cv2.waitKey(0)
 			cv2.imwrite('Rostros encontrados/rostro_{}.jpg'.format(count),rostro)
 			count = count +1
 	elif k == 27:
